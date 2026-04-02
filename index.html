@@ -12,26 +12,14 @@
     tailwind.config = {
       theme: {
         extend: {
-          boxShadow: {
-            soft: '0 20px 60px rgba(15, 23, 42, 0.12)',
-          },
+          boxShadow: { soft: '0 20px 60px rgba(15, 23, 42, 0.12)' },
           colors: {
             brand: {
-              50: '#f0f7f6',
-              100: '#d9e9e6',
-              200: '#b3d3cc',
-              300: '#6bcaba', // Mint
-              400: '#3da594',
-              500: '#006b54', // Mid Green
-              600: '#005c48',
-              700: '#004d3d', // Primary Dark Green
-              800: '#003d31',
-              900: '#002e25'
+              50: '#f0f7f6', 100: '#d9e9e6', 200: '#b3d3cc', 300: '#6bcaba', 
+              400: '#3da594', 500: '#006b54', 600: '#005c48', 700: '#004d3d', 
+              800: '#003d31', 900: '#002e25'
             },
-            accent: {
-              orange: '#d47a24', // Logo Orange
-              mint: '#6bcaba'
-            }
+            accent: { orange: '#d47a24', mint: '#6bcaba' }
           }
         }
       }
@@ -39,113 +27,82 @@
   </script>
   
   <style>
-    :root {
-      --bg-main: #f8fafc;
-      --brand-dark: #002e25;
-      --card-white: #ffffff;
-      --border-light: rgba(0, 77, 61, 0.1);
-    }
-
-    body {
-      background-color: var(--bg-main);
-      color: var(--brand-dark);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    }
-
-    .glass-card {
-      background: var(--card-white);
-      border: 1px solid var(--border-light);
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    }
-
-    .chart-container {
-      position: relative;
-      height: 400px;
-      width: 100%;
-    }
-
-    .header-pattern {
-      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-
-    .bill-row:hover {
-      background-color: #f1f5f9;
-    }
-
-    .link-card:hover {
-      border-color: #006b54;
-      background-color: #f0fdfa;
-    }
+    :root { --bg-main: #f8fafc; --brand-dark: #002e25; --card-white: #ffffff; --border-light: rgba(0, 77, 61, 0.1); }
+    body { background-color: var(--bg-main); color: var(--brand-dark); font-family: ui-sans-serif, system-ui; }
+    .glass-card { background: var(--card-white); border: 1px solid var(--border-light); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+    .chart-container { position: relative; height: 320px; width: 100%; }
+    .header-pattern { background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 30px 30px; }
+    .metric-value { font-size: 2.25rem; font-weight: 900; line-height: 1; }
+    .bill-row:hover { background-color: #f1f5f9; }
   </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
   <main class="max-w-7xl mx-auto px-4 py-6 md:px-8 flex-grow">
     
-    <!-- Top Navigation / Logo Area -->
+    <!-- Navigation -->
     <nav class="flex items-center justify-between mb-8 py-4 border-b border-slate-200">
       <div class="flex items-center gap-4">
-        <div class="h-16 w-auto flex items-center justify-center overflow-hidden">
-          <img src="IIL-Logo-Secondary-FullColor-SM.png" alt="Invest in Louisiana Logo" class="h-full object-contain" onerror="this.style.display='none'; document.getElementById('text-logo').classList.remove('hidden');" />
-          <div id="text-logo" class="hidden font-black text-2xl tracking-tighter text-brand-900 uppercase">
-            Invest <span class="text-accent-orange">In</span> Louisiana
-          </div>
+        <div class="font-black text-2xl tracking-tighter text-brand-900 uppercase">
+          Invest <span class="text-accent-orange">In</span> Louisiana
         </div>
       </div>
-      <div class="hidden md:block text-right">
-        <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">2026 Regular Session Monitoring</div>
+      <div class="text-right">
+        <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">2026 Session Monitoring</div>
         <div class="text-brand-700 font-bold text-xs uppercase tracking-tight">SNAP Administrative Accuracy Tracker</div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative overflow-hidden rounded-3xl bg-brand-700 text-white mb-8">
+    <!-- Hero Header -->
+    <header class="relative overflow-hidden rounded-3xl bg-brand-700 text-white mb-6">
       <div class="absolute inset-0 bg-gradient-to-br from-brand-800 to-brand-600 opacity-95"></div>
       <div class="absolute inset-0 header-pattern"></div>
-      
-      <div class="relative px-8 py-10 md:px-12 md:py-14">
+      <div class="relative px-8 py-10 md:px-12">
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div class="max-w-2xl">
             <div class="mb-4 inline-flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-accent-orange animate-pulse"></span>
-              <span class="text-xs font-black uppercase tracking-widest text-accent-mint tracking-widest">Active Research & Policy Tracking</span>
+              <span class="text-[10px] font-black uppercase tracking-widest text-accent-mint uppercase">Active Research & Policy Tracking</span>
             </div>
-            <h1 class="text-3xl font-black md:text-5xl tracking-tight mb-4 leading-tight">SNAP Administrative Accuracy</h1>
-            <p class="text-lg text-white/80 leading-relaxed font-medium">
-              Monitoring federal risk thresholds and fiscal exposure for Louisiana’s social safety net. Research and analysis by <strong>Tia Fields</strong>.
+            <h1 class="text-3xl font-black md:text-5xl tracking-tight mb-3 leading-tight uppercase">Administrative Accuracy</h1>
+            <p class="text-lg text-white/80 leading-snug font-medium mb-4">
+              Monitoring tool for SNAP compliance thresholds, procedural barriers, and potential state fiscal liabilities.
+            </p>
+            <div class="h-px w-24 bg-accent-mint/30 mb-4"></div>
+            <p class="text-sm text-accent-mint font-bold uppercase tracking-widest">
+              Policy Research & Monitoring by <strong>Tia Fields</strong>
             </p>
           </div>
-          
-          <div class="flex flex-col gap-4">
-            <div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 min-w-[260px]">
-               <div class="text-[10px] uppercase tracking-widest font-bold text-accent-mint mb-3">2026 Session Estimate</div>
-               <div id="statusBadge" class="inline-flex px-3 py-1 rounded-full text-[10px] font-bold bg-red-600 text-white mb-4 shadow-lg shadow-red-900/20">ABOVE THRESHOLD</div>
-               <div class="flex items-baseline gap-2">
-                 <span id="headerRate" class="text-5xl font-black">7.61%</span>
-                 <span class="text-white/50 text-xs font-bold uppercase">Rate</span>
-               </div>
+          <div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 min-w-[280px]">
+            <div class="text-[10px] uppercase tracking-widest font-bold text-accent-mint mb-3 text-center">2026 Performance Estimate</div>
+            <div class="flex justify-center px-3 py-1 rounded-full text-[10px] font-bold bg-red-600 text-white mb-4 shadow-lg shadow-red-900/20 uppercase">Critical Threshold Alert</div>
+            <div class="flex flex-col items-center">
+              <div class="flex items-baseline gap-2">
+                <span class="text-6xl font-black">7.61%</span>
+                <span class="text-white/50 text-xs font-bold uppercase tracking-widest">Rate</span>
+              </div>
+              <p class="text-[10px] uppercase font-black tracking-widest text-white/60 mt-2">H.R.1 Fiscal Penalty Imminent</p>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Professional Definitions Context -->
+    <!-- Payment Error Definitions -->
     <section class="grid grid-cols-1 gap-4 mb-8">
       <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
         <h4 class="text-[10px] font-black text-brand-700 uppercase tracking-widest mb-4">Payment Error Definitions</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="space-y-1">
-            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider">Overpayment</p>
+            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider font-bold">Overpayment</p>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">Benefits issued in excess of household eligibility.</p>
           </div>
           <div class="space-y-1">
-            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider">Underpayment</p>
+            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider font-bold">Underpayment</p>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">Eligible benefits that were not correctly issued to the household.</p>
           </div>
           <div class="space-y-1">
-            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider">Nature of Errors</p>
+            <p class="text-brand-900 uppercase text-[10px] font-black tracking-wider font-bold">Nature of Errors</p>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">Errors are technical inaccuracies (62% unintentional household, 14% administrative) and are distinct from intentional fraud.</p>
           </div>
         </div>
@@ -157,39 +114,38 @@
       </div>
     </section>
 
-    <!-- KPI Metrics -->
-    <section class="grid grid-cols-1 gap-6 md:grid-cols-3 mb-8">
-      <article class="glass-card rounded-2xl p-8 border-t-4 border-slate-300">
-        <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4">Federal Threshold</h3>
-        <div class="text-4xl font-black text-brand-900">6.0%</div>
-        <p class="mt-4 text-xs text-slate-600 leading-normal font-medium">
-          The USDA standard for accuracy. Exceeding 6% triggers mandatory corrective actions and fiscal penalties.
-        </p>
-      </article>
-
-      <article class="glass-card rounded-2xl p-8 border-t-4 border-brand-500">
-        <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-brand-600 mb-4">Louisiana 2026 Estimate</h3>
-        <div class="text-4xl font-black text-brand-900">7.61%</div>
-        <p class="mt-4 text-xs text-slate-600 leading-normal font-medium">
-          Estimated administrative accuracy rate tracking finalized USDA QC reports and projected internal assessments.
-        </p>
-      </article>
-
-      <article class="glass-card rounded-2xl p-8 border-t-4 border-accent-orange">
-        <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-accent-orange mb-4">Estimated Liability</h3>
-        <div class="text-4xl font-black text-brand-900">$95.12M</div>
-        <p class="mt-4 text-xs text-slate-600 leading-normal font-medium">
-          Potential state-share penalty mandate based on current performance relative to federal benchmarks.
-        </p>
-      </article>
+    <!-- KPI Section -->
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+      <div class="glass-card rounded-2xl p-5 border-t-4 border-slate-300">
+        <p class="text-[10px] font-black uppercase text-slate-500 mb-1">SNAP Cases Closed (June 2025)</p>
+        <div class="metric-value">26,036</div>
+        <p class="text-[11px] text-slate-600 mt-1 font-medium">Total State Terminations</p>
+      </div>
+      <div class="glass-card rounded-2xl p-5 border-t-4 border-brand-500">
+        <p class="text-[10px] font-black uppercase text-brand-600 mb-1">Procedural Wall</p>
+        <div class="metric-value text-brand-700">82.2%</div>
+        <p class="text-[11px] text-slate-600 mt-1 font-medium">Admin Failure Ratio</p>
+      </div>
+      <div class="glass-card rounded-2xl p-5 border-t-4 border-accent-orange">
+        <p class="text-[10px] font-black uppercase text-accent-orange mb-1">Fiscal Deadline: June 30, 2026</p>
+        <div class="metric-value" id="countdownDays">--</div>
+        <p class="text-[11px] text-slate-600 mt-1 font-medium italic">Days to H.R.1 Assessment</p>
+      </div>
+      <div class="glass-card rounded-2xl p-5 border-t-4 border-red-600">
+        <p class="text-[10px] font-black uppercase text-red-600 mb-1">Fiscal Responsibility Bill</p>
+        <div class="metric-value text-red-700">$95.1M</div>
+        <p class="text-[11px] text-slate-600 mt-1 font-medium">Est. State Share Liability</p>
+      </div>
     </section>
 
-    <!-- Historical Accuracy Chart -->
+    <!-- Historical Performance -->
     <section class="glass-card rounded-3xl p-6 md:p-10 mb-8">
-      <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
         <div>
           <h2 class="text-2xl font-black text-brand-900 tracking-tight">Performance Trends vs. National Average</h2>
-          <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Data gaps (2016, 2020, 2021) represent official USDA reporting pauses.</p>
+          <p class="text-xs text-slate-600 font-medium mt-2 leading-relaxed max-w-2xl">
+            This trend demonstrates the growing gap between Louisiana's administrative accuracy and federal standards. While national averages have seen volatility, Louisiana's current trajectory toward <strong>7.61%</strong> puts the state in direct conflict with H.R.1 fiscal mandates, making IT modernization and staff retention critical policy priorities.
+          </p>
         </div>
         <div class="flex flex-wrap gap-4 text-[10px] font-black uppercase tracking-widest">
           <div class="flex items-center gap-2 px-3 py-1.5 rounded bg-brand-50 text-brand-700 border border-brand-100">
@@ -203,18 +159,108 @@
           </div>
         </div>
       </div>
-      <div class="chart-container">
+      <div class="chart-container" style="height: 380px;">
         <canvas id="errorRateChart"></canvas>
       </div>
     </section>
 
-    <!-- 2026 Regular Session | Bill Watch -->
-    <section class="glass-card rounded-3xl p-6 md:p-10 mb-8">
+    <!-- Strategic Correlation Insight -->
+    <div class="bg-brand-900 text-white rounded-2xl p-8 mb-8 flex flex-col md:flex-row items-center gap-8 border-l-8 border-accent-orange">
+      <div class="flex-grow">
+        <h4 class="text-accent-mint font-black uppercase text-xs tracking-widest mb-3">The Structural Correlation</h4>
+        <p class="text-sm leading-relaxed opacity-95">
+          Analysis of state data reveals that when <strong>Procedural Closures</strong> (82.2%) spike, households lose vital assistance due to paperwork and process friction rather than a loss of eligibility. This systemic "Churn" directly impacts the state's fiscal health; when federal Quality Control auditors review these churned cases, they are frequently categorized as <strong>Administrative Errors</strong>. It is this specific administrative friction—not household fraud—that elevates Louisiana's <strong>Error Rate to 7.61%</strong>, exceeding the 6% federal limit and triggering a projected <strong>$95.1M Fiscal Liability</strong> under the mandates of the Fiscal Responsibility Act (H.R.1).
+        </p>
+      </div>
+      <div class="w-full md:w-auto flex flex-col items-center bg-white/10 p-6 rounded-2xl border border-white/10">
+         <span class="text-[10px] font-black uppercase tracking-widest opacity-50 mb-1">Federal Threshold</span>
+         <span class="text-4xl font-black text-red-400">6.00%</span>
+      </div>
+    </div>
+
+    <!-- SNAP Case Closure Profile -->
+    <section class="glass-card rounded-3xl p-8 mb-8 overflow-hidden">
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h3 class="text-xl font-black text-brand-900 uppercase tracking-tight">SNAP Case Closure Profile: Procedural Friction Analysis (June 2025)</h3>
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Detailed Breakdown of Administrative Barriers to SNAP Retention</p>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-[10px] font-black text-slate-400 border-b border-slate-100 uppercase tracking-widest">
+              <th class="pb-4 px-2">Closure Reason (SNAP Cases Closed)</th>
+              <th class="pb-4 px-2 text-right">Total Cases</th>
+              <th class="pb-4 px-2 text-right">% of Total</th>
+              <th class="pb-4 px-2 text-right">SNAP Error Risk Level</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm font-bold">
+            <tr class="border-b border-slate-50 bill-row">
+              <td class="py-4 px-2 text-brand-900 font-bold">Failed to Provide info within specific timeframe</td>
+              <td class="py-4 px-2 text-right">8,193</td>
+              <td class="py-4 px-2 text-right">31.47%</td>
+              <td class="py-4 px-2 text-right text-red-600 font-black uppercase">Critical</td>
+            </tr>
+            <tr class="border-b border-slate-50 bill-row">
+              <td class="py-4 px-2 text-brand-900 font-bold">Failure to complete redetermination</td>
+              <td class="py-4 px-2 text-right">7,638</td>
+              <td class="py-4 px-2 text-right">29.34%</td>
+              <td class="py-4 px-2 text-right text-red-600 font-black uppercase">Critical</td>
+            </tr>
+            <tr class="border-b border-slate-50 bill-row">
+              <td class="py-4 px-2 text-brand-900 font-bold">Failure to complete SR (Simplified Report)</td>
+              <td class="py-4 px-2 text-right">4,661</td>
+              <td class="py-4 px-2 text-right">17.90%</td>
+              <td class="py-4 px-2 text-right text-orange-600 font-black uppercase">High</td>
+            </tr>
+            <tr class="border-b border-slate-50 bill-row">
+              <td class="py-4 px-2 text-brand-900 font-bold">Failed to complete interview</td>
+              <td class="py-4 px-2 text-right">913</td>
+              <td class="py-4 px-2 text-right">3.51%</td>
+              <td class="py-4 px-2 text-right text-brand-400 font-black uppercase">Admin</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="py-4 px-4 text-brand-900 uppercase">Substantive Eligibility Failures Total</td>
+              <td class="py-4 px-4 text-right">3,961</td>
+              <td class="py-4 px-4 text-right">15.2%</td>
+              <td class="py-4 px-4 text-right text-brand-500 font-black uppercase">Low Risk</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Data Visualizations -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <div class="glass-card rounded-3xl p-6">
+        <h3 class="text-sm font-black text-brand-900 uppercase tracking-widest mb-2">Regional Application Efficiency (SFY 2025)</h3>
+        <p class="text-xs text-slate-500 mb-4 leading-relaxed font-medium">
+          This graph compares how many families were approved ("Certified") versus denied ("Rejected") in each region. A high rejection rate (orange) suggests that families may be struggling with complicated forms or that local offices are understaffed, rather than families simply not being eligible for help.
+        </p>
+        <div class="chart-container">
+          <canvas id="sfyRegionalChart"></canvas>
+        </div>
+      </div>
+      <div class="glass-card rounded-3xl p-6">
+        <h3 class="text-sm font-black text-brand-900 uppercase tracking-widest mb-2">Case Closure Composition (June 2025)</h3>
+        <p class="text-xs text-slate-500 mb-4 leading-relaxed font-medium">
+          This chart breaks down why people are losing their SNAP benefits. The largest slice (Dark Green) represents "Procedural" closures—this means people lost help because of missed interviews or missing paperwork, not because they earned too much money. This "red tape" is what causes the most errors.
+        </p>
+        <div class="chart-container">
+          <canvas id="closureDeepDiveChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2026 Regular Session | Bill Tracker -->
+    <section class="glass-card rounded-3xl p-6 md:p-10 mb-12">
       <div class="mb-8">
         <h2 class="text-2xl font-black text-brand-900 tracking-tight">2026 Regular Session | Bill Tracker</h2>
         <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mt-1">Legislation impacting administrative complexity and payment accuracy.</p>
       </div>
-      <div class="overflow-x-auto">
+      <div class="overflow-x-auto mb-10">
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-100">
@@ -226,85 +272,63 @@
           <tbody class="text-sm font-medium">
             <tr class="bill-row border-b border-slate-50">
               <td class="py-4 px-2 font-black text-brand-700">SB 265</td>
-              <td class="py-4 px-2 italic">Abolish DCFS / Transfer to LDH</td>
+              <td class="py-4 px-2 italic text-brand-900">Abolish DCFS / Transfer to LDH</td>
               <td class="py-4 px-2 text-slate-600"><strong>High Risk:</strong> Massive IT migration and 1,500 staff transfers historically trigger significant accuracy spikes.</td>
             </tr>
             <tr class="bill-row border-b border-slate-50">
               <td class="py-4 px-2 font-black text-brand-700">SB 219</td>
-              <td class="py-4 px-2 italic">Office of Health & Nutrition</td>
-              <td class="py-4 px-2 text-slate-600"><strong>Direct:</strong> Centralizes administration; oversees restrictive food waivers and integrated metabolic health initiatives.</td>
+              <td class="py-4 px-2 italic text-brand-900">Office of Health & Nutrition</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Direct:</strong> Centralizes administration; oversees food waivers and metabolic health initiatives.</td>
             </tr>
             <tr class="bill-row border-b border-slate-50">
               <td class="py-4 px-2 font-black text-brand-700">HB 181</td>
-              <td class="py-4 px-2 italic">Inter-Agency Data Sharing</td>
-              <td class="py-4 px-2 text-slate-600"><strong>Precedent Watch:</strong> Currently limited to Medicaid, but establishes a framework for the Legislative Auditor to use state tax data for eligibility audits. <strong>Risk:</strong> Potential for increased procedural errors if outdated tax data is used to override self-reported household income.</td>
+              <td class="py-4 px-2 italic text-brand-900">Inter-Agency Data Sharing</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Precedent Watch:</strong> Framework for Legislative Auditor to use tax data for audits. <strong>Risk:</strong> Potential for procedural errors.</td>
             </tr>
             <tr class="bill-row border-b border-slate-50">
               <td class="py-4 px-2 font-black text-brand-700">HB 689 / SB 52</td>
-              <td class="py-4 px-2 italic">Benefit Exchange (Children)</td>
-              <td class="py-4 px-2 text-slate-600"><strong>Operational:</strong> Streamlines benefit adjustments when household circumstances change to ensure payment integrity.</td>
+              <td class="py-4 px-2 italic text-brand-900">Benefit Exchange (Children)</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Operational:</strong> Streamlines benefit adjustments when household circumstances change.</td>
             </tr>
             <tr class="bill-row border-b border-slate-50">
               <td class="py-4 px-2 font-black text-brand-700">SB 233</td>
-              <td class="py-4 px-2 italic">Statewide Data Compact</td>
-              <td class="py-4 px-2 text-slate-600"><strong>Structural:</strong> Technical prerequisite for the "One Door" portal's automated eligibility verification.</td>
+              <td class="py-4 px-2 italic text-brand-900">Statewide Data Compact</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Structural:</strong> Technical prerequisite for automated verification.</td>
             </tr>
             <tr class="bill-row border-b border-slate-50">
               <td class="py-4 px-2 font-black text-brand-700">HB 381</td>
-              <td class="py-4 px-2 italic">High Impact Jobs Program</td>
-              <td class="py-4 px-2 text-slate-600"><strong>Indirect:</strong> Uses SNAP data to determine company eligibility; likely to increase interagency data processing workload.</td>
+              <td class="py-4 px-2 italic text-brand-900">High Impact Jobs Program</td>
+              <td class="py-4 px-2 text-slate-600"><strong>Indirect:</strong> Uses SNAP data to determine company eligibility.</td>
             </tr>
           </tbody>
         </table>
       </div>
-    </section>
-
-    <!-- Analyst Note & External Resources -->
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-      <div class="glass-card rounded-3xl p-8 border-l-8 border-brand-700">
-        <h4 class="text-lg font-black text-brand-900 mb-6 uppercase tracking-tight">Analyst's Perspective</h4>
-        <div class="text-sm text-slate-700 leading-relaxed space-y-4 font-medium italic">
-          <p>Effective administrative accuracy requires targeted investments in IT modernization and analyst training. High error rates are symptomatic of technical complexity rather than intentional misuse.</p>
-          <p>The transition of SNAP functions between agencies during the 2026 Session presents a critical juncture for ensuring program stability and protecting state resources.</p>
-        </div>
-        <div class="mt-8 flex items-center gap-4 pt-6 border-t border-slate-100">
-          <div class="h-12 w-12 rounded-full bg-brand-700 text-accent-mint flex items-center justify-center font-black">TF</div>
-          <div>
-            <div class="font-black text-brand-900 tracking-tight">Tiandra "Tia" Fields</div>
-            <div class="text-[10px] uppercase tracking-widest font-black text-slate-400"> Safety-Net Policy Research Analyst</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-brand-900 rounded-3xl p-8 text-white relative overflow-hidden">
-        <h4 class="text-lg font-black text-accent-mint mb-4 tracking-tight uppercase">External Data Resources</h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://www.fns.usda.gov/snap/qc" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
-            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">USDA FNS</span>
-            <span class="text-xs font-bold">Federal QC Portal →</span>
-          </a>
-          <a href="https://ldh.la.gov/resources?q=Program%20Statistics%202024-25%3A%20Supplemental%20Nutritional%20Assistance%20Program%20%28SNAP%29" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
-            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">LDH Portal</span>
-            <span class="text-xs font-bold">Program Statistics →</span>
-          </a>
-          <a href="https://www.lla.la.gov/" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
-            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">Audit</span>
-            <span class="text-xs font-bold">Legislative Auditor →</span>
-          </a>
-          <a href="https://legis.la.gov/" target="_blank" class="link-card border border-white/20 rounded-xl p-4 bg-white/5 transition-all text-center">
-            <span class="text-[10px] font-black uppercase text-accent-mint block mb-1">Legis</span>
-            <span class="text-xs font-bold">Bill Tracker →</span>
-          </a>
-        </div>
-        <div class="mt-8 pt-6 border-t border-white/10">
-          <p class="text-[10px] uppercase tracking-widest font-black text-white/50">Reporting Standard</p>
-          <p class="text-xs font-bold text-accent-mint">USDA FNS-310 (Quality Control Framework)</p>
+      
+      <!-- Resources Link Grid (COLOR BLOCKS) -->
+      <div class="mt-8 border-t border-slate-100 pt-10">
+        <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 text-center italic">Primary Policy and Data Resources</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="https://www.fns.usda.gov/snap/qc" target="_blank" class="rounded-2xl p-8 text-center flex flex-col items-center justify-center bg-brand-700 text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+              <span class="text-[10px] font-black uppercase text-accent-mint block mb-2 tracking-[0.2em]">USDA FNS</span>
+              <span class="text-sm font-black uppercase tracking-tight">Federal Quality Control Portal</span>
+              <span class="mt-3 text-[10px] opacity-70">Official Accuracy Benchmarks →</span>
+            </a>
+            <a href="https://ldh.la.gov/resources" target="_blank" class="rounded-2xl p-8 text-center flex flex-col items-center justify-center bg-accent-orange text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+              <span class="text-[10px] font-black uppercase text-white block mb-2 tracking-[0.2em] opacity-80">LDH Portal</span>
+              <span class="text-sm font-black uppercase tracking-tight">Program Statistics</span>
+              <span class="mt-3 text-[10px] opacity-70">State Enrollment Data →</span>
+            </a>
+            <a href="https://www.lla.la.gov/" target="_blank" class="rounded-2xl p-8 text-center flex flex-col items-center justify-center bg-brand-900 text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
+              <span class="text-[10px] font-black uppercase text-accent-mint block mb-2 tracking-[0.2em]">Audit</span>
+              <span class="text-sm font-black uppercase tracking-tight">Legislative Auditor</span>
+              <span class="mt-3 text-[10px] opacity-70">Compliance Reports →</span>
+            </a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Professional Contact Footer -->
+  <!-- Footer -->
   <footer class="bg-white border-t border-slate-200 py-12 px-4 md:px-8">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
       <div>
@@ -325,23 +349,48 @@
   </footer>
 
   <script>
-    /**
-     * HISTORICAL ACCURACY DATA (2014-2026)
-     * Compiled from USDA FNS Official State-by-State Error Rate Reports
-     * null values represent official USDA reporting pauses (2016, 2020-21)
-     */
+    const REGIONS = ['Orleans', 'Baton Rouge', 'Covington', 'Thibodaux', 'Lafayette', 'Lake Charles', 'Alexandria', 'Shreveport', 'Monroe'];
+    const CERTIFIED = [41564, 27078, 22511, 17452, 31407, 12939, 13969, 24220, 21637];
+    const REJECTED = [41186, 28255, 22092, 16768, 28367, 12933, 12988, 23528, 19846];
+    const CLOSURE_LABELS = ['Procedural (Admin)', 'Eligibility', 'Sanctions', 'Client Request'];
+    const CLOSURE_DATA = [21405, 3961, 10, 660];
     const ACCURACY_DATA = {
-      labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026*'],
-      laValues: [1.55, 3.20, null, 6.56, 2.70, 3.79, null, null, 7.19, 6.65, 6.62, 7.40, 7.61],
-      nationalValues: [3.66, null, null, 6.30, 6.80, 7.36, null, null, 11.54, 11.68, 10.93, 11.20, 10.93],
-      threshold: 6.0
+      labels: ['2014', '2015', '2017', '2018', '2019', '2022', '2023', '2024', '2025', '2026*'],
+      laValues: [1.55, 3.20, 6.56, 2.70, 3.79, 7.19, 6.65, 6.62, 7.40, 7.61],
+      nationalValues: [3.66, null, 6.30, 6.80, 7.36, 11.54, 11.68, 10.93, 11.20, 10.93],
     };
 
-    function renderChart() {
-      const ctx = document.getElementById('errorRateChart').getContext('2d');
-      if (window.accuracyChart) window.accuracyChart.destroy();
+    function initCharts() {
+      new Chart(document.getElementById('sfyRegionalChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: REGIONS,
+          datasets: [
+            { label: 'Certifications', data: CERTIFIED, backgroundColor: '#006b54', borderRadius: 4 },
+            { label: 'Rejections', data: REJECTED, backgroundColor: '#d47a24', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
 
-      window.accuracyChart = new Chart(ctx, {
+      new Chart(document.getElementById('closureDeepDiveChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: CLOSURE_LABELS,
+          datasets: [{
+            data: CLOSURE_DATA,
+            backgroundColor: ['#004d3d', '#3da594', '#d47a24', '#6bcaba'],
+            borderWidth: 0
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, cutout: '75%' }
+      });
+
+      new Chart(document.getElementById('errorRateChart').getContext('2d'), {
         type: 'line',
         data: {
           labels: ACCURACY_DATA.labels,
@@ -353,75 +402,53 @@
               backgroundColor: 'rgba(0, 107, 84, 0.05)',
               fill: true,
               borderWidth: 4,
-              tension: 0.15,
-              pointRadius: 6,
-              pointBackgroundColor: '#006b54',
-              pointBorderColor: '#fff',
-              pointBorderWidth: 2,
-              spanGaps: false
+              tension: 0.2,
+              pointRadius: 5
             },
             {
-              label: 'National Average',
+              label: 'National Avg',
               data: ACCURACY_DATA.nationalValues,
               borderColor: '#94a3b8',
-              borderWidth: 2,
               borderDash: [5, 5],
-              tension: 0.15,
-              pointRadius: 4,
-              pointBackgroundColor: '#fff',
-              pointBorderColor: '#94a3b8',
-              fill: false,
-              spanGaps: false
+              fill: false
             },
             {
-              label: '6% Threshold',
+              label: '6% Limit',
               data: Array(ACCURACY_DATA.labels.length).fill(6),
               borderColor: '#ef4444',
               borderWidth: 1.5,
               borderDash: [10, 5],
-              pointRadius: 0,
-              fill: false
+              pointRadius: 0
             }
           ]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          interaction: { intersect: false, mode: 'index' },
-          plugins: { 
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: '#002e25',
-              padding: 12,
-              titleFont: { weight: 'bold' },
-              callbacks: {
-                label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.y ? ctx.parsed.y + '%' : 'Data Not Reported'}`
-              }
-            }
-          },
           scales: {
-            x: { 
-              grid: { display: false }, 
-              ticks: { font: { weight: 'bold', size: 10 }, color: '#64748b' } 
-            },
-            y: { 
-              beginAtZero: true, 
-              max: 14,
-              ticks: { 
-                stepSize: 2,
-                callback: (v) => v + '%',
-                font: { weight: 'bold' },
-                color: '#64748b'
-              },
-              grid: { color: 'rgba(0, 0, 0, 0.03)' }
-            }
+            y: { beginAtZero: true, max: 14, ticks: { callback: (v) => v + '%' } }
           }
         }
       });
     }
 
+    function updateCountdown() {
+        const targetDate = new Date('June 30, 2026').getTime();
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const countdownEl = document.getElementById('countdownDays');
+        if (days > 0) {
+          countdownEl.innerText = days;
+        } else {
+          countdownEl.innerText = "0";
+          countdownEl.classList.add('text-red-600');
+        }
+    }
+
     window.onload = function() {
-      renderChart();
+      initCharts();
+      updateCountdown();
     };
   </script>
 </body>
